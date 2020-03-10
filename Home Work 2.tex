@@ -1,0 +1,137 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[english,russian]{babel}
+\usepackage{amsmath, amsfonts, amssymb, amsthm, mathtools }
+\usepackage{ upgreek }
+
+\title{Домашнее задание №2}
+\author{Амир Капкаев}
+\date{March 2020}
+
+\usepackage{natbib}
+\usepackage{graphicx}
+
+\begin{document}
+
+\maketitle
+\newpage
+(И) Вычисление частного и остатка от деления числа, заданного в унарной системе
+счисления, на два (над алфавитом $\sum = \{1, \#\}$). Результат должен записываться
+в виде «частное\#остаток». Ноль должен соответствовать пустому слову. \\
+$\sum' = \sum \cup \{*\}$\\
+\\
+$\left\{
+\begin{aligned}
+*11 &\rightarrow 1*\\
+*1 &\rightarrow .\#1\\
+* &\rightarrow .\#\\
+11 &\rightarrow *11\\
+1 &\rightarrow \#1 \\
+\end{aligned}
+\right.$\\
+\\
+(К)  Дублирование всех символов входного слова (над алфавитом $\sum = \{a, b\}$).\\
+$\sum' = \sum \cup \{*\}$  \\
+\\
+$\left\{
+\begin{aligned}
+*a &\rightarrow aa* \\
+*b &\rightarrow bb* \\
+\epsilon &\rightarrow * \\
+* &\rightarrow .\epsilon 
+\end{aligned}
+\right.$\\
+\\
+(Л) Перестановка символов входного слова в обратном порядке (над $\sum = \{a, b\}$).\\
+$\sum' = \sum \cup \{*,\#,|\}$ \\
+\\
+$\left\{
+\begin{aligned}
+*a &\rightarrow a*\\
+*b &\rightarrow b*\\
+* &\rightarrow \#\\
+aa\# &\rightarrow a\#a\\
+ba\# &\rightarrow a\#b\\
+ab\# &\rightarrow b\#a\\
+bb\# &\rightarrow b\#b\\
+|a\# &\rightarrow a|*\\
+|b\# &\rightarrow b|*\\
+|* &\rightarrow .\epsilon\\
+a &\rightarrow |*a\\
+b &\rightarrow |*b
+\end{aligned}
+\right.$ \\
+\\
+\newpage
+(М) Cортировка символов входного слова (над алфавитом $\sum = \{a, b, c\}$).\\
+\\
+$\left\{
+\begin{aligned}
+ba &\rightarrow ab \\
+cb &\rightarrow bc \\
+ca &\rightarrow ac \\ 
+\end{aligned}
+\right.$ 
+\\
+(Н) Проверка, является ли входное слово палиндромом (над алфавитом $\sum = \{a, b\}$).
+Если является, то результатом должно быть пустое слово, если не является, то
+результатом может быть любое непустое слово.
+$\sum' = \sum \cup \{*, \#\}$\\
+$\left\{
+\begin{aligned}
+a*a &\rightarrow aa*\\
+a*b &\rightarrow ba*\\
+b*a &\rightarrow ab*\\
+b*b &\rightarrow bb*\\
+* &\rightarrow \#\\
+aa\# &\rightarrow \epsilon\\
+bb\# &\rightarrow \epsilon\\
+a\# &\rightarrow .\epsilon\\
+b\# &\rightarrow .\epsilon\\
+a &\rightarrow a*\\
+b &\rightarrow b*\\
+\end{aligned}
+\right.$ \\
+\\
+(О) Проверка, является ли входное слово именем одного из основных регистров
+процессора Intel 8088 (AX, BX, CX или DX). Результатом должно быть либо
+имя регистра, либо пустое слово.\\
+$\sum = \{A, B, C, ..., X, Y, Z\}$ \\
+$\sum' = \sum \cup \{*, \#, <, >\}$\\
+$\left\{
+\begin{aligned}
+E &\rightarrow >\\
+F &\rightarrow >\\
+&...\\
+Z &\rightarrow >\\
+>A &\rightarrow >\\
+>B &\rightarrow >\\
+...\\
+>Z &\rightarrow >\\
+> &\rightarrow \epsilon\\
+A< &\rightarrow <\\
+B< &\rightarrow <\\
+&...\\
+Z< &\rightarrow <\\
+\#A &\rightarrow A\#\\
+\#B &\rightarrow B\#\\
+&...\\
+\#Z &\rightarrow Z\#\\
+AX\# &\rightarrow .AX\\
+BX\# &\rightarrow .BX\\
+CX\# &\rightarrow .CX\\
+DX\# &\rightarrow .DX\\
+\# &\rightarrow <\\
+< &\rightarrow \epsilon\\
+*X &\rightarrow X\#\\
+*A &\rightarrow <>\\
+*B &\rightarrow <>\\
+&...\\
+*Z &\rightarrow <>\\
+A &\rightarrow A*\\
+B &\rightarrow B*\\
+C &\rightarrow C*\\
+D &\rightarrow D*\\
+\end{aligned}
+\right.$ \\
+\end{document}
